@@ -53,7 +53,6 @@ rows_count, cols_count = [int(x) for x in input().split()]
 lair = create_field(rows_count)
 commands = input()
 player_r, player_c = find_player(lair, rows_count, cols_count)
-is_dead = False
 
 for command in commands:
     if command == 'U':
@@ -64,16 +63,17 @@ for command in commands:
         next_r, next_c = player_r, player_c - 1
     else:
         next_r, next_c = player_r, player_c + 1
-    if check_valid_cell(next_r, next_c, rows_count, cols_count) and lair[next_r][next_c] == 'B':
-        is_dead = True
-        break
-    elif check_valid_cell(next_r, next_c, rows_count, cols_count):
+
+    if check_valid_cell(next_r, next_c, rows_count, cols_count):
         lair[player_r][player_c] = '.'
         if lair[next_r][next_c] == '.':
             player_r, player_c = next_r, next_c
             lair[player_r][player_c] = 'P'
         elif lair[next_r][next_c] == 'B':
-            is_dead = True
+            player_r, player_c = next_r, next_c
+            multiply_bunnies(lair, rows_count, cols_count)
+            print_matrix(lair)
+            print(f'dead: {player_r} {player_c}')
             break
     else:
         lair[player_r][player_c] = '.'
@@ -82,9 +82,3 @@ for command in commands:
         print(f'won: {player_r} {player_c}')
         break
     multiply_bunnies(lair, rows_count, cols_count)
-
-if is_dead:
-    player_r, player_c = next_r, next_c
-    multiply_bunnies(lair, rows_count, cols_count)
-    print_matrix(lair)
-    print(f'dead: {player_r} {player_c}')

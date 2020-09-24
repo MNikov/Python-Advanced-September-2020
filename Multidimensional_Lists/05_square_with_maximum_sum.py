@@ -25,8 +25,8 @@ matrix = create_matrix(rows_count)
 best_pos = 0, 0
 best_sum = get_square_sum(0, 0, matrix)
 
-for r in range(len(matrix) - 1):
-    for c in range(len(matrix[r]) - 1):
+for r in range(rows_count - 1):
+    for c in range(cols_count - 1):
         current_pos = r, c
         current_sum = get_square_sum(r, c, matrix)
         if current_sum > best_sum:
