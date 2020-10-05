@@ -14,3 +14,6 @@ for line in text_file:
 with open('output.txt', 'w') as output_file:
     for word, count in sorted(word_dict.items(), key=lambda x: -x[1]):
         output_file.write(f'{word} - {count}\n')
+
+words_file.close()
+text_file.close()
