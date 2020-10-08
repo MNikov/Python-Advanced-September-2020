@@ -17,3 +17,5 @@ def locate_number(number):
         print(f"The number - {number} is at index {index}")
     else:
         print(f"The number {number} is not in the sequence")
+
+# Python Advanced September 2020 - Jordan`s solution: https://pastebin.com/uQwzF9tB

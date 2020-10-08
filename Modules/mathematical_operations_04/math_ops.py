@@ -20,7 +20,7 @@ def raise_to_power(a, b):
 
 def calculate(string):
     a, sign, b = string.split()
-    a, b = float(a), float(b)
+    a, b = float(a), int(b)
     if sign == '/':
         result = divide_nums(a, b)
     elif sign == '*':

@@ -12,3 +12,4 @@ def play_hot_potato(names, toss_count):
 
 
 play_hot_potato(input().split(), int(input()))
+
