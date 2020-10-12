@@ -23,8 +23,8 @@ try:
         searched = line
         del numbers_dictionary[searched]
 except ValueError:
-    pass
+    print('The variable number must be an integer')
 except KeyError:
-    pass
-# TODO handle exceptions
+    print('Number does not exist in dictionary')
+
 print(numbers_dictionary)
